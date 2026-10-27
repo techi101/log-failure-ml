@@ -1,0 +1,64 @@
+scanning raw log ...
+  11,175,629 lines parsed, 0 unparsed (291s)
+clustering done
+session models done
+time series done
+{
+  "dataset": {
+    "sessions": 575061,
+    "failed_sessions": 16838,
+    "failure_rate": 0.0293,
+    "event_types": 29,
+    "train": 460048,
+    "test": 115013
+  },
+  "logistic_regression": {
+    "best_params": {
+      "logisticregression__C": 10,
+      "logisticregression__class_weight": null
+    },
+    "cv_f1": 0.9908,
+    "test": {
+      "precision": 0.9926,
+      "recall": 0.9961,
+      "f1": 0.9944
+    },
+    "test_roc_auc": 0.9996,
+    "confusion_matrix": [
+      [
+        111620,
+        25
+      ],
+      [
+        13,
+        3355
+      ]
+    ]
+  },
+  "isolation_forest_sessions": {
+    "test": {
+      "precision": 0.8123,
+      "recall": 0.5834,
+      "f1": 0.6791
+    },
+    "test_roc_auc": 0.9559,
+    "confusion_matrix": [
+      [
+        111191,
+        454
+      ],
+      [
+        1403,
+        1965
+      ]
+    ]
+  },
+  "timeseries": {
+    "minutes": 2322,
+    "flagged_minutes": 47,
+    "mean_failed_share_flagged": 0.0753,
+    "mean_failed_share_other": 0.0251,
+    "hot_minutes_top2pct": 48,
+    "hot_minutes_caught": 13
+  }
+}

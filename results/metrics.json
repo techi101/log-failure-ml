@@ -1,0 +1,237 @@
+{
+  "dataset": {
+    "sessions": 575061,
+    "failed_sessions": 16838,
+    "failure_rate": 0.0293,
+    "event_types": 29,
+    "train": 460048,
+    "test": 115013
+  },
+  "lines_parsed": 11175629,
+  "lines_unparsed": 0,
+  "clustering": {
+    "distinct_message_types": 54,
+    "k": 12,
+    "silhouette": 0.1654,
+    "clusters": [
+      {
+        "cluster": 1,
+        "message_types": 3,
+        "lines": 25,
+        "failed_session_share": 1.0,
+        "top_terms": [
+          "closedbyinterruptexception",
+          "channels",
+          "nio",
+          "java",
+          "exception"
+        ],
+        "example": "PacketResponder <BLK> <NUM> Exception java.nio.channels.ClosedByInterruptException"
+      },
+      {
+        "cluster": 3,
+        "message_types": 6,
+        "lines": 56,
+        "failed_session_share": 1.0,
+        "top_terms": [
+          "net",
+          "sockettimeoutexception",
+          "java",
+          "for",
+          "<ip>"
+        ],
+        "example": "PacketResponder <BLK> <NUM> Exception java.net.SocketTimeoutException: <NUM> millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=<IP> remote=<IP>]"
+      },
+      {
+        "cluster": 5,
+        "message_types": 7,
+        "lines": 3262,
+        "failed_session_share": 1.0,
+        "top_terms": [
+          "ioexception",
+          "io",
+          "pipe",
+          "broken",
+          "java"
+        ],
+        "example": "writeBlock <BLK> received exception java.io.IOException: Could not read from stream"
+      },
+      {
+        "cluster": 6,
+        "message_types": 4,
+        "lines": 170,
+        "failed_session_share": 1.0,
+        "top_terms": [
+          "reset",
+          "peer",
+          "by",
+          "connection",
+          "ioexception"
+        ],
+        "example": "Exception in receiveBlock for block <BLK> java.io.IOException: Connection reset by peer"
+      },
+      {
+        "cluster": 9,
+        "message_types": 3,
+        "lines": 114,
+        "failed_session_share": 1.0,
+        "top_terms": [
+          "eofexception",
+          "io",
+          "java",
+          "exception",
+          "<blk>"
+        ],
+        "example": "Exception in receiveBlock for block <BLK> java.io.EOFException"
+      },
+      {
+        "cluster": 11,
+        "message_types": 4,
+        "lines": 61,
+        "failed_session_share": 1.0,
+        "top_terms": [
+          "io",
+          "left",
+          "interruptedioexception",
+          "interruped",
+          "java"
+        ],
+        "example": "PacketResponder <BLK> <NUM> Exception java.io.InterruptedIOException: Interruped while waiting for IO on channel java.nio.channels.SocketChannel[connected local=<IP> remote=<IP>]. <NUM> millis timeout left."
+      },
+      {
+        "cluster": 7,
+        "message_types": 2,
+        "lines": 5549,
+        "failed_session_share": 0.96,
+        "top_terms": [
+          "not",
+          "block",
+          "unexpected",
+          "trying",
+          "blockinfo"
+        ],
+        "example": "Unexpected error trying to delete block <BLK>. BlockInfo not found in volumeMap."
+      },
+      {
+        "cluster": 2,
+        "message_types": 8,
+        "lines": 805908,
+        "failed_session_share": 0.0415,
+        "top_terms": [
+          "<ip>",
+          "to",
+          "block",
+          "<blk>",
+          "thread"
+        ],
+        "example": "<IP> Served block <BLK> to <IP>"
+      },
+      {
+        "cluster": 4,
+        "message_types": 6,
+        "lines": 1977235,
+        "failed_session_share": 0.0265,
+        "top_terms": [
+          "block",
+          "<path>",
+          "<blk>",
+          "reopen",
+          "file"
+        ],
+        "example": "Deleting block <BLK> file <PATH>/<BLK>"
+      },
+      {
+        "cluster": 0,
+        "message_types": 3,
+        "lines": 1722004,
+        "failed_session_share": 0.0247,
+        "top_terms": [
+          "addstoredblock",
+          "namesystem",
+          "size",
+          "request",
+          "<num>"
+        ],
+        "example": "BLOCK* NameSystem.addStoredBlock: blockMap updated: <IP> is added to <BLK> size <NUM>"
+      },
+      {
+        "cluster": 10,
+        "message_types": 4,
+        "lines": 4833017,
+        "failed_session_share": 0.0236,
+        "top_terms": [
+          "<ip>",
+          "of",
+          "src",
+          "dest",
+          "size"
+        ],
+        "example": "Receiving block <BLK> src: <IP> dest: <IP>"
+      },
+      {
+        "cluster": 8,
+        "message_types": 4,
+        "lines": 1828228,
+        "failed_session_share": 0.02,
+        "top_terms": [
+          "for",
+          "packetresponder",
+          "terminating",
+          "block",
+          "interrupted"
+        ],
+        "example": "PacketResponder <NUM> for block <BLK> terminating"
+      }
+    ]
+  },
+  "logistic_regression": {
+    "best_params": {
+      "logisticregression__C": 10,
+      "logisticregression__class_weight": null
+    },
+    "cv_f1": 0.9908,
+    "test": {
+      "precision": 0.9926,
+      "recall": 0.9961,
+      "f1": 0.9944
+    },
+    "test_roc_auc": 0.9996,
+    "confusion_matrix": [
+      [
+        111620,
+        25
+      ],
+      [
+        13,
+        3355
+      ]
+    ]
+  },
+  "isolation_forest_sessions": {
+    "test": {
+      "precision": 0.8123,
+      "recall": 0.5834,
+      "f1": 0.6791
+    },
+    "test_roc_auc": 0.9559,
+    "confusion_matrix": [
+      [
+        111191,
+        454
+      ],
+      [
+        1403,
+        1965
+      ]
+    ]
+  },
+  "timeseries": {
+    "minutes": 2322,
+    "flagged_minutes": 47,
+    "mean_failed_share_flagged": 0.0753,
+    "mean_failed_share_other": 0.0251,
+    "hot_minutes_top2pct": 48,
+    "hot_minutes_caught": 13
+  },
+  "runtime_s": 430.2
+}
